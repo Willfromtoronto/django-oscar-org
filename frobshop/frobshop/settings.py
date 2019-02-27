@@ -26,7 +26,8 @@ SECRET_KEY = '(25=)m45g#=tx2nfz=y%y3a_(ya5bj@c_b##c#fz^=5d(y9bje'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definitions
@@ -68,10 +69,16 @@ from oscar import OSCAR_MAIN_TEMPLATE_DIR
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-            OSCAR_MAIN_TEMPLATE_DIR
-        ],
+                    location('templates'), # templates directory of the project
+                ],
+
+
+        # 'DIRS': [
+        #     os.path.join(BASE_DIR, 'templates'),
+        #     OSCAR_MAIN_TEMPLATE_DIR
+        # ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

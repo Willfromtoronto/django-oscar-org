@@ -6,7 +6,7 @@ services:
     build: .
     volumes:
       - .:/opt/services/djangoapp/src
-      - static_volume:/opt/services/djangoapp/static  # <-- bind the static volume
+      - static_volume:/opt/services/djangoapp/src/frobshop/static  # <-- bind the static volume
       - media_volume:/opt/services/djangoapp/media  # <-- bind the media volume
     networks:
       - nginx_network
