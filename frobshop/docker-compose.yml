@@ -7,7 +7,7 @@ services:
     volumes:
       - .:/opt/services/djangoapp/src
       - static_volume:/opt/services/djangoapp/src/frobshop/static  # <-- bind the static volume
-      - media_volume:/opt/services/djangoapp/media  # <-- bind the media volume
+      - media_volume:/opt/services/djangoapp/src/frobshop/media  # <-- bind the media volume
     networks:
       - nginx_network
       - database1_network
@@ -20,8 +20,8 @@ services:
       - 8000:80
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
-      - static_volume:/opt/services/djangoapp/static  # <-- bind the static volume
-      - media_volume:/opt/services/djangoapp/media  # <-- bind the media volume
+      - static_volume:/opt/services/djangoapp/src/frobshop/static  # <-- bind the static volume
+      - media_volume:/opt/services/djangoapp/src/frobshop/media  # <-- bind the media volume
     depends_on:
       - djangoapp
     networks:
